@@ -3,6 +3,7 @@ package com.hyt.web.controller;
 
 import com.hyt.model.Tables;
 import com.hyt.service.TableServiceImpl;
+import com.hyt.util.FileSaveUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.util.List;
@@ -44,27 +47,25 @@ public class TableController {
         return "table/success";
     }
 
+    @RequestMapping("add1")
+    public String caseInsert(Tables tables, MultipartFile[] file, HttpServletRequest request){
+        try {
 
-    @RequestMapping(value = "/saveStudentInfo", method= RequestMethod.POST)
-    public ResponseData studentInfoSave(@RequestParam("file") MultipartFile file, Tables tables) {
-
-        String filename = URLEncoder.encode(file.getOriginalFilename(), "utf-8");
-
-        InputStream inputStream = file.getInputStream();
-
-	//上传到第三方服务器（例如使用FTP传到自己搭建的FTP服务器）
-
-        tables.setPicture("ftp://ftphost:port/imageDir/" + filename);
-
-	//在Dao层将学生信息存到数据库
-
-	//其他
-
-        return ResponseData.success("success","success");
+            FileSaveUtil util=new FileSaveUtil(file,tables,request);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        tableService.addTable(tables);
+        return "table/success";
     }
 
 
 
+    @RequestMapping("find1")
+    public String findTable1(Model model){
+
+        return "front/lookDetail";
+    }
 
 
 
@@ -72,7 +73,6 @@ public class TableController {
     public String findTable(Model model){
         //查找报名表
         List<Tables> tables1 = tableService.findTables();
-        System.out.println(tables1);
         model.addAttribute("tables1",tables1);
         return "table/list";
     }
