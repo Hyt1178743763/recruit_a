@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script src="../../static/main/js/jquery-1.8.3.js"></script>
+    <script src="../../static/main/js/jquery.form.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<table border="1">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>书名</th>
+        <th>价格</th>
+        <th>作者</th>
+        <th>封面</th>
+        <th>出版社</th>
+        <th>编号</th>
+        <th>书名</th>
+        <th>价格</th>
+        <th>作者</th>
+        <th>封面</th>
+        <th>出版社</th>
+        <th>出版社</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="list">
+    <tr th:each="entries,stat:${tables1}" th:style="'background-color:'+@{${stat.odd}?'#F2F2F2'}">
+        <td th:text="${stat.count}"></td>
+        <td th:text="${entries['name']}"></td>
+        <td th:text="${entries['gender']}"></td>
+        <td th:text="${entries['phonenum']}"></td>
+        <td th:text="${entries['qqnum']}"></td>
+        <td th:text="${entries['classes']}"></td>
+        <td th:text="${entries['dormitory']}"></td>
+        <td th:text="${entries['organization']}"></td>
+        <td th:text="${entries['introduction']}"></td>
+        <td th:text="${entries['likes']}"></td>
+        <td th:text="${entries['future']}"></td>
+        <td th:text="${entries['traget']}"></td>
+        <td th:text="${entries['picture']}"></td>
+        <td><a th:href="@{http://localhost:8899/recuit/table/detail(id=${entries['id']})}">详情</a></td>
+        <!-- 写法一：
+        <td th:text="${entries['scourse']['cname']}"></td>
+        <td th:text="${entries['scourse']['cscore']}"></td>-->
+        <!-- 写法二：
+        <td th:text="*{entries['scourse']['cname']}"></td>
+        <td th:text="*{entries['scourse']['cscore']}"></td>-->
+        <!-- 写法三：-->
+        <!--<td th:object="${entries['scourse']}">
+            <span th:text="*{['cname']}"></span>
+        </td>
+        <td th:object="${entries['scourse']}">
+            <span th:text="*{['cscore']}"></span>
+        </td>-->
+    </tr>
+    </tbody>
+</table>
+<script>
+    var a1 = ${table1}
+        alert(a1);
+</script>
+aaaa
+</body>
+</html>

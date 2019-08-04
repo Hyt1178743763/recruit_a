@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../static/main/js/jquery-1.8.3.js"></script>
+    <script src="../../static/main/js/jquery.form.js"></script>
+    <script>
+        function submitImage() {
+            alert("提交图片到后台");
+
+            //封装请求数据
+            var options = {
+                type: 'post',
+                data: {
+                    username: 'gyf'
+                },
+                dataType: 'json',
+                url: '${pageContext.request.contextPath}/upload/itemspic.do',
+                success: function (respData) {
+                    //var jsonObj = $.parseJSON(respData);
+                    console.log(respData.imgUrl);
+                    $('#pic').attr('src', respData.imgUrl);
+                    $('#hiddenPic').val(respData.imgUrl)
+                }
+            }
+
+            //提交表单
+            $('#itemsForm').ajaxSubmit(options)
+        }
+    </script>
+</head>
+<body>
+<form id="itemsForm" action="" method="post">
+    <table border="1">
+        <tr>
+            <td>姓名</td>
+            <td>
+                <input type="text" name="name"/>
+            </td>
+            <input type="hidden" name="id"/></td>
+        </tr>
+        <tr>
+            <td>价格</td>
+            <td><input type="text" name="price"/></td>
+        </tr>
+        <tr>
+            <td>描述</td>
+            <td><textarea cols="20" rows="5" name="detail"></textarea></td>
+        </tr>
+        <tr>
+            <td>图片</td>
+            <td>
+                <img id="pic" src="" width="100px" height="100px">
+                <input type="file" name="itemspic1" onchange="submitImage();">
+                <input id="hiddenPic" type="hidden" name="pic">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="更新">
+            </td>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

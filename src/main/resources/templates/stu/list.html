@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script src="../../static/main/js/jquery-1.8.3.js"></script>
+    <script src="../../static/main/js/jquery.form.js"></script>
+    <script>
+        function submitImage() {
+            alert("提交图片到后台");
+            //封装请求数据
+            var options = {
+                type:'post',
+                data:{
+                    username:'gyf'
+                },
+                dataType:'json',
+                url:'${pageContext.request.contextPath}/upload/itemspic.do',
+                success:function (respData) {
+                    //var jsonObj = $.parseJSON(respData);
+                    console.log(respData.imgUrl);
+                    $('#pic').attr('src',respData.imgUrl);
+                    $('#hiddenPic').val(respData.imgUrl)
+                }
+            }
+
+            //提交表单
+            $('#itemsForm').ajaxSubmit(options)
+        }
+    </script>
+    <script>
+        $.ajax({
+            type:"get",
+            url:"/doShowBook",
+            dataType:"json",
+            success:function (data) {
+                $(data).each(
+                    function (i, values) {
+                        $("#list").html(
+                            "<tr><td>"+values.bookid+"</td>"
+                            +"<td><a href='getBookByname?name='>"+values.bookname+"</ta></td>"
+                            +"<td>"+values.price+"</td>"
+                            +"<td>"+values.author+"</td>"
+                            +"<td>"+values.pic+"</td>"
+                            +"<td>"+values.publish+"</td></tr>"
+                        );
+
+                    }
+                );
+            },
+        })
+    </script>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>书名</th>
+        <th>价格</th>
+        <th>作者</th>
+        <th>封面</th>
+        <th>出版社</th>
+    </tr>
+    </thead>
+    <tbody id="list"></tbody>
+
+
+    <from method="post" action="${pageContext.request.contextPath}/items/update.do">
+        <table border="1">
+            <tr>
+                <td>名称</td>
+                <td>
+                    <input type="text" name="name" value="${items.name}"></td>
+                <input type="hidden" name="id" value="${items.id}"></td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td><input type="text" name="price" value="${items.price}"></td>
+            </tr>
+            <tr>
+                <td>描述</td>
+                <td><textarea cols="20" rows="5" name="detail">${items.detail}</textarea> </td>
+            </tr>
+            <tr>
+                <td>图片</td>
+                <td>
+                    <img id="pic" src="${items.pic}" width="100px" height="100px">
+                    <input type="file" name="itemspic1" onchange="submitImage();">
+                    <input id="hiddenPic" type="hidden" name="pic" value="${items.pic}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="更新">
+                </td>
+            </tr>
+        </table>
+    </from>
+</table>
+</body>
+</html>
