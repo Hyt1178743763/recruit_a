@@ -33,6 +33,18 @@ public class TableController {
     public String login(){
         return "front/index";
     }
+    @RequestMapping("index2")
+    public String login2(){
+        return "front/index2";
+    }
+    @RequestMapping("index3")
+    public String login3(){
+        return "front/index3";
+    }
+    @RequestMapping("index4")
+    public String login4(){
+        return "front/index4";
+    }
 
 
     /**

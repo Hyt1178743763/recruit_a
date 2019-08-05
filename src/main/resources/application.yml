@@ -1,7 +1,7 @@
 server:
   port: 8899
-  context-path: /recuit
-mvc:
-  static-path-pattern: /uploads/**
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:/home/uploads/
+  context-path: /recruit
+#mvc:
+#  static-path-pattern: /uploads/**
+#  resources:
+#    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:/home/uploads/

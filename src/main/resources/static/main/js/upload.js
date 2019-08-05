@@ -4,7 +4,7 @@ function DragImgUpload(id,options) {
         boxWidth:'200px',
         boxHeight:'270px'
     }
-    this.preview = $('<div id="preview"><img th:src="@{/main/img/upload.png}" class="img-responsive" name="picture" style="width: 100%;height: auto;" alt="" title=""> </div>');
+    this.preview = $('<div id="preview"><img src="/recuit/main/img/upload.png" class="img-responsive" name="picture" style="width: 100%;height: auto;" alt="" title=""> </div>');
     this.opts=$.extend(true, defaultOpt,{
     }, options);
     this.init();
