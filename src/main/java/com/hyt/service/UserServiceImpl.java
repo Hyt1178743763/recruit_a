@@ -21,13 +21,9 @@ public class UserServiceImpl {
     }*/
 
 
-    public boolean findUserName(User user1){
-        User user = userMapper.selectByName(user1.getUsername());
-        if (user1!=null&&user1.getPassword()==user.getPassword()){
-            return true;
-        }else {
-            return false;
-        }
+    public User findUserName(String username){
+        User user = userMapper.selectByName(username);
+            return user;
 
     }
 

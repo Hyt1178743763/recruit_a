@@ -1,4 +1,4 @@
-package com.hyt.dbconfig;
+package com.hyt.config;
 
 
 import com.alibaba.druid.pool.DruidDataSource;

@@ -1,4 +1,4 @@
-package com.hyt.util;
+package com.hyt.config;
 
 import com.hyt.model.Tables;
 import org.apache.commons.io.FilenameUtils;
