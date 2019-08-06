@@ -4,9 +4,11 @@ package com.hyt.web.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hyt.config.FileUtil;
 import com.hyt.model.Tables;
 import com.hyt.service.TableServiceImpl;
 import com.hyt.config.FileSaveUtil;
+import org.apache.poi.hssf.usermodel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -130,6 +133,51 @@ public class TableController {
             model.addAttribute("table",tables2);
         }
         return "front/lookDetail";
+    }
+
+    @RequestMapping("/exportExcel")
+    public void exportExcel(HttpServletRequest request, HttpServletResponse response) {
+        List<Tables> tableList = tableService.findTables();
+        // 创建工作簿
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        // 创建表
+        HSSFSheet sheet = workbook.createSheet("报名信息");
+        // 创建行
+        HSSFRow row = sheet.createRow(0);
+        // 创建单元格样式
+        HSSFCellStyle cellStyle = workbook.createCellStyle();
+        // 表头
+        String[] head = {"姓名", "性别","手机号","qq","班级","宿舍","已投组织","自我介绍","爱好","实验室学习展望","目标","图片"};
+        HSSFCell cell;
+        // 设置表头
+        for(int iHead=0; iHead<head.length; iHead++) {
+            cell = row.createCell(iHead);
+            cell.setCellValue(head[iHead]);
+            cell.setCellStyle(cellStyle);
+        }
+        // 设置表格内容
+        for(int iBody=0; iBody<tableList.size(); iBody++) {
+            row = sheet.createRow(iBody+1);
+            Tables tables = tableList.get(iBody);
+            String[] tableArray = new String[12];
+            tableArray[0]=tables.getName();
+            tableArray[1]=tables.getGender();
+            tableArray[2]=tables.getPhonenum();
+            tableArray[3]=tables.getQqnum();
+            tableArray[4]=tables.getClasses();
+            tableArray[5]=tables.getDormitory();
+            tableArray[6]=tables.getOrganization();
+            tableArray[7]=tables.getIntroduction();
+            tableArray[8]=tables.getLikes();
+            tableArray[9]=tables.getFuture();
+            tableArray[10]=tables.getTraget();
+            tableArray[11]=tables.getPicture();
+            for(int iArray=0; iArray<tableArray.length; iArray++) {
+                row.createCell(iArray).setCellValue(tableArray[iArray]);
+            }
+        }
+        // 生成Excel文件
+        FileUtil.createFile(response, workbook);
     }
 
 }
