@@ -415,4 +415,9 @@
     select * FROM tables;
   </select>
 
+
+  <select id="findWithBLOBsByPage" resultType="com.hyt.model.Tables">
+    select * FROM tables;
+  </select>
+
 </mapper>

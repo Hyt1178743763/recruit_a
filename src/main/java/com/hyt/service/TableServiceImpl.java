@@ -1,5 +1,8 @@
 package com.hyt.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hyt.mapper.TablesMapper;
 import com.hyt.model.Tables;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +33,5 @@ public class TableServiceImpl{
         Tables tables = tablesMapper.selectByPrimaryKey(id);
         return tables;
     }
+
 }

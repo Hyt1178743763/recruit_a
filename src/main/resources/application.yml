@@ -5,3 +5,10 @@ server:
 #  static-path-pattern: /uploads/**
 #  resources:
 #    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:/home/uploads/
+
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

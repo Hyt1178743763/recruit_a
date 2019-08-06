@@ -29,18 +29,18 @@
             <div class="layui-row layui-col-space15">
                 <div class="layui-col-md12">
                     <div class="layui-card">
-                        <div class="layui-card-header">
+                        <!--<div class="layui-card-header">
                             <button class="layui-btn layui-btn-danger" onclick="delAll()">
                                 <i class="layui-icon"></i>批量删除</button>
                             <button class="layui-btn" onclick="xadmin.open('添加用户','./order-add.html',800,600)">
                                 <i class="layui-icon"></i>添加</button></div>
-                        <div class="layui-card-body ">
+                        <div class="layui-card-body ">-->
                             <table class="layui-table layui-form">
                                 <thead>
                                     <tr>
-                                        <th>
+                                        <!--<th>
                                             <input type="checkbox" name="" lay-skin="primary">
-                                        </th>
+                                        </th>-->
                                         <th>编号</th>
                                         <th>姓名</th>
                                         <th>性别</th>
@@ -59,7 +59,7 @@
                                 <tbody>
 
                                 <tr th:each="entries,stat:${tables1}" th:style="'background-color:'+@{${stat.odd}?'#F2F2F2'}">
-                                    <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                  <!--  <td><input type="checkbox" name="" lay-skin="primary"></td>-->
                                     <td th:text="${stat.count}"></td>
                                     <td th:text="${entries['name']}"></td>
                                     <td th:text="${entries['gender']}"></td>
@@ -77,8 +77,8 @@
                                     <td class="td-manage">
                                         <a title="查看" onclick="xadmin.open('编辑','order-view.html')" th:href="@{/table/detail(id=${entries['id']})}">
                                             <i class="layui-icon">&#xe63c;</i></a>
-                                        <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                            <i class="layui-icon">&#xe640;</i></a>
+                                        <!--<a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                                            <i class="layui-icon">&#xe640;</i></a>-->
                                     </td>
                                 </tr>
 
@@ -149,10 +149,10 @@
                             <div class="page">
                                 <div>
                                     <a class="prev" href="">&lt;&lt;</a>
-                                    <a class="num" href="">1</a>
-                                    <span class="current">2</span>
-                                    <a class="num" href="">3</a>
-                                    <a class="num" href="">489</a>
+                                    <!--<a class="num" href="">1</a>-->
+                                    <span class="current">1</span>
+                                    <!--<a class="num" href="">3</a>
+                                    <a class="num" href="">489</a>-->
                                     <a class="next" href="">&gt;&gt;</a></div>
                             </div>
                         </div>

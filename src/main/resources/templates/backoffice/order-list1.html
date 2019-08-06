@@ -84,82 +84,23 @@
                                     </td>
                                 </tr>
 
-                                   <!-- <tr>
-                                        <td>
-                                            <input type="checkbox" name="" lay-skin="primary"></td>
-                                        <td>2017009171822298053</td>
-                                        <td>老王:18925139194</td>
-                                        <td>7829.10</td>
-                                        <td>7854.10</td>
-                                        <td>待确认</td>
-                                        <td>未支付</td>
-                                        <td>未发货</td>
-                                        <td>其他方式</td>
-                                        <td>申通物流</td>
-                                        <td>2017-08-17 18:22</td>
-                                        <td class="td-manage">
-                                            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
-                                                <i class="layui-icon">&#xe63c;</i></a>
-                                            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                                <i class="layui-icon">&#xe640;</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" name="" lay-skin="primary"></td>
-                                        <td>2017009171822298053</td>
-                                        <td>老王:18925139194</td>
-                                        <td>7829.10</td>
-                                        <td>7854.10</td>
-                                        <td>待确认</td>
-                                        <td>未支付</td>
-                                        <td>未发货</td>
-                                        <td>其他方式</td>
-                                        <td>申通物流</td>
-                                        <td>2017-08-17 18:22</td>
-                                        <td class="td-manage">
-                                            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
-                                                <i class="layui-icon">&#xe63c;</i></a>
-                                            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                                <i class="layui-icon">&#xe640;</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" name="" lay-skin="primary"></td>
-                                        <td>2017009171822298053</td>
-                                        <td>老王:18925139194</td>
-                                        <td>7829.10</td>
-                                        <td>7854.10</td>
-                                        <td>待确认</td>
-                                        <td>未支付</td>
-                                        <td>未发货</td>
-                                        <td>其他方式</td>
-                                        <td>申通物流</td>
-                                        <td>2017-08-17 18:22</td>
-                                        <td class="td-manage">
-                                            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
-                                                <i class="layui-icon">&#xe63c;</i></a>
-                                            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                                <i class="layui-icon">&#xe640;</i></a>
-                                        </td>
-                                    </tr>-->
+
                                 </tbody>
                             </table>
                         </div>
-                        <div class="layui-card-body ">
+                        <!--<div class="layui-card-body ">
                             <div class="page">
-                                <!--<div>
+                                &lt;!&ndash;<div>
                                     <a class="prev" href="">&lt;&lt;</a>
                                     <a class="num" href="">1</a>
                                     <span class="current">2</span>
                                     <a class="num" href="">3</a>
                                     <a class="num" href="">489</a>
-                                    <a class="next" href="">&gt;&gt;</a></div>-->
-                                <nav>
+                                    <a class="next" href="">&gt;&gt;</a></div>&ndash;&gt;
+                                &lt;!&ndash;<nav>
                                     <ul class="pagination">
                                         <li>
-                                            <a th:if="${not isFirstPage}" th:href="@{${'allTables'}(pageNum=${pageNum-1},pageSize=${pageSize})}" aria-label="Previous">
+                                            <a th:if="${not isFirstPage}" th:href="@{${'table/allTables'}(pageNum=${pageNum-1},pageSize=${pageSize})}" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                             </a>
                                             <a th:if="${isFirstPage}" href="javascript:void(0);" aria-label="Previous">
@@ -172,13 +113,13 @@
                                                 <span th:text="${pageNo}"></span>
                                             </a>
 
-                                            <a th:if="${not (pageNum eq pageNo)}" th:href="@{${'allTables'}(pageNum=${pageNo},pageSize=${pageSize})}">
+                                            <a th:if="${not (pageNum eq pageNo)}" th:href="@{${'table/allTables'}(pageNum=${pageNo},pageSize=${pageSize})}">
                                                 <span th:text="${pageNo}"></span>
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a th:if="${not isLastPage}" th:href="@{${'allTables'}(pageNum=${pageNum+1},pageSize=${pageSize})}" aria-label="Next">
+                                            <a th:if="${not isLastPage}" th:href="@{${'table/allTables'}(pageNum=${pageNum+1},pageSize=${pageSize})}" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                             </a>
                                             <a th:if="${isLastPage}" href="javascript:void(0);" aria-label="Next">
@@ -186,60 +127,42 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </nav>
+                                </nav>&ndash;&gt;
+
                             </div>
-                        </div>
+                        </div> -->
+                        <nav>
+                        <ul class="pagination">
+                            <li><a href="">&laquo;</a></li>
+
+                            <li>
+                                <a th:if="${not isFirstPage}" th:href="@{${'/allTable'}(pageNum=${pageNum-1},pageSize=${pageSize})}">Previous</a>
+                                <a th:if="${isFirstPagee}" href="javascript:void(0);">Previous</a>
+                            </li>
+
+                            <li th:each="pageNo : ${#numbers.sequence(1, totalPages)}">
+                                <a th:if="${pageNum eq pageNo}" href="javascript:void(0);">
+                                    <span th:text="${pageNo}"></span>
+                                </a>
+
+                                <a th:if="${not (pageNum eq pageNo)}" th:href="@{${'/allTable'}(pageNum=${pageNo},size=${pageSize})}">
+                                    <span th:text="${pageNo}"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:if="${not isLastPage}" th:href="@{${'/allTable'}(pageNum=${pageNum+1},size=${pageSize})}">Next</a>
+                                <a th:if="${isLastPage}" href="javascript:void(0);">Next</a>
+                            </li>
+
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </nav>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script>layui.use(['laydate', 'form'],
-        function() {
-            var laydate = layui.laydate;
-
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#start' //指定元素
-            });
-
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#end' //指定元素
-            });
-        });
-
-        /*用户-停用*/
-        function member_stop(obj, id) {
-            layer.confirm('确认要停用吗？',
-            function(index) {
-
-                if ($(obj).attr('title') == '启用') {
-
-                    //发异步把用户状态进行更改
-                    $(obj).attr('title', '停用');
-                    $(obj).find('i').html('&#xe62f;');
-
-                    $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
-                    layer.msg('已停用!', {
-                        icon: 5,
-                        time: 1000
-                    });
-
-                } else {
-                    $(obj).attr('title', '启用');
-                    $(obj).find('i').html('&#xe601;');
-
-                    $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
-                    layer.msg('已启用!', {
-                        icon: 5,
-                        time: 1000
-                    });
-                }
-
-            });
-        }
-
+    <script>
         /*用户-删除*/
         function member_del(obj, id) {
             layer.confirm('确认要删除吗？',

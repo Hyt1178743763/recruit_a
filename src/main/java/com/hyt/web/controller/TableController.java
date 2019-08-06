@@ -1,6 +1,7 @@
 package com.hyt.web.controller;
 
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hyt.model.Tables;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -61,7 +63,6 @@ public class TableController {
         tableService.addTable(tables);
         return "table/success";
     }
-
     @RequestMapping("add1")
     public String caseInsert(Tables tables, MultipartFile[] file, HttpServletRequest request){
         try {
@@ -84,7 +85,6 @@ public class TableController {
 
 
     /**
-     * @Author 胡宜涛
      * 查找返回所有的表
      * @param model
      * @return
@@ -98,8 +98,7 @@ public class TableController {
     }
 
     @RequestMapping(value = "/allTables")
-    public String list(Model model, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "5") Integer pageSize) {
-
+    public String list(Model model, @RequestParam(defaultValue = "2") Integer pageNum, @RequestParam(defaultValue = "6") Integer pageSize) {
         //引入分页查询，使用PageHelper分页功能在查询之前传入当前页，然后多少记录
         PageHelper.startPage(pageNum, pageSize);
         //startPage后紧跟的这个查询就是分页查询
@@ -108,7 +107,7 @@ public class TableController {
         PageInfo pageInfo = new PageInfo<Tables>(tables, 5);
 
         model.addAttribute("pageInfo", pageInfo);
-
+        System.out.println(pageInfo);
         //获得当前页
         model.addAttribute("pageNum", pageInfo.getPageNum());
         //获得一页显示的条数
@@ -121,7 +120,6 @@ public class TableController {
         model.addAttribute("isLastPage", pageInfo.isIsLastPage());
         return "backoffice/order-list1";
     }
-
 
     @RequestMapping("detail")
     public String detail(Integer id,Model model){

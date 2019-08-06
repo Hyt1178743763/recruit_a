@@ -1,5 +1,6 @@
 package com.hyt.mapper;
 
+import com.github.pagehelper.Page;
 import com.hyt.model.Tables;
 import com.hyt.model.TablesExample;
 import org.apache.ibatis.annotations.Param;
@@ -100,4 +101,9 @@ public interface TablesMapper {
      * @mbggenerated Thu Aug 01 10:09:54 CST 2019
      */
     int updateByPrimaryKey(Tables record);
+
+    /**
+     * 插件 分页  查询表中所有字段
+     */
+    Page<Tables> findWithBLOBsByPage();
 }
