@@ -12,18 +12,18 @@
     <thead>
     <tr>
         <th>编号</th>
-        <th>书名</th>
-        <th>价格</th>
-        <th>作者</th>
-        <th>封面</th>
-        <th>出版社</th>
-        <th>编号</th>
-        <th>书名</th>
-        <th>价格</th>
-        <th>作者</th>
-        <th>封面</th>
-        <th>出版社</th>
-        <th>出版社</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>手机</th>
+        <th>QQ</th>
+        <th>班级</th>
+        <th>宿舍</th>
+        <th>已投组织</th>
+        <th>自我介绍</th>
+        <th>it相关爱好，特长</th>
+        <th>在实验室学习展望</th>
+        <th>理想目标</th>
+        <th>图片地址</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -42,7 +42,7 @@
         <td th:text="${entries['future']}"></td>
         <td th:text="${entries['traget']}"></td>
         <td th:text="${entries['picture']}"></td>
-        <td><a th:href="@{http://localhost:8899/recuit/table/detail(id=${entries['id']})}">详情</a></td>
+        <td><a th:href="@{/table/detail(id=${entries['id']})}">详情</a></td>
         <!-- 写法一：
         <td th:text="${entries['scourse']['cname']}"></td>
         <td th:text="${entries['scourse']['cscore']}"></td>-->

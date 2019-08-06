@@ -1,13 +1,18 @@
 package com.hyt.web.controller;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hyt.model.Tables;
 import com.hyt.service.TableServiceImpl;
 import com.hyt.config.FileSaveUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,11 +24,13 @@ import java.util.List;
  * @Controller 一般用于写后(有页面)
  */
 @Controller
-@RequestMapping("table")
+@RequestMapping(value = "/table")
 public class TableController {
 
     @Autowired
     private TableServiceImpl tableService;
+
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping("index")
     public String login(){
@@ -76,14 +83,45 @@ public class TableController {
     }
 
 
-
+    /**
+     * @Author 胡宜涛
+     * 查找返回所有的表
+     * @param model
+     * @return
+     */
     @RequestMapping("find")
     public String findTable(Model model){
         //查找报名表
         List<Tables> tables1 = tableService.findTables();
         model.addAttribute("tables1",tables1);
-        return "table/list";
+        return "backoffice/order-list";
     }
+
+    @RequestMapping(value = "/allTables")
+    public String list(Model model, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "5") Integer pageSize) {
+
+        //引入分页查询，使用PageHelper分页功能在查询之前传入当前页，然后多少记录
+        PageHelper.startPage(pageNum, pageSize);
+        //startPage后紧跟的这个查询就是分页查询
+        List<Tables> tables = tableService.findTables();
+        //使用PageInfo包装查询结果，只需要将pageInfo交给页面就可以
+        PageInfo pageInfo = new PageInfo<Tables>(tables, 5);
+
+        model.addAttribute("pageInfo", pageInfo);
+
+        //获得当前页
+        model.addAttribute("pageNum", pageInfo.getPageNum());
+        //获得一页显示的条数
+        model.addAttribute("pageSize", pageInfo.getPageSize());
+        //是否是第一页
+        model.addAttribute("isFirstPage", pageInfo.isIsFirstPage());
+        //获得总页数
+        model.addAttribute("totalPages", pageInfo.getPages());
+        //是否是最后一页
+        model.addAttribute("isLastPage", pageInfo.isIsLastPage());
+        return "backoffice/order-list1";
+    }
+
 
     @RequestMapping("detail")
     public String detail(Integer id,Model model){

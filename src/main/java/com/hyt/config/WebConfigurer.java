@@ -1,7 +1,6 @@
 package com.hyt.config;
 
 import com.hyt.config.intercepors.LoginInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -11,7 +10,6 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.*;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -50,7 +48,7 @@ public class WebConfigurer implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry interceptorRegistry) {
         // addPathPatterns("/**") 表示拦截所有的请求，
         // excludePathPatterns("/login", "/register") 表示除了登陆与注册之外，因为登陆注册不需要登陆也可以访问
-        interceptorRegistry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/back/login", "/table/**");
+        interceptorRegistry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/back/login","/back/login1", "/table/**");
 
     }
 

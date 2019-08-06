@@ -1,8 +1,6 @@
 package com.hyt;
 
 import static org.junit.Assert.assertTrue;
-
-import com.hyt.service.UserServiceImpl;
 import org.junit.Test;
 
 /**
@@ -19,10 +17,4 @@ public class AppTest
         assertTrue( true );
     }
 
-    public void text(){
-
-        UserServiceImpl userService = new UserServiceImpl();
-
-
-    }
 }

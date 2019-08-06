@@ -1,6 +1,8 @@
 package com.hyt.model;
 
-public class Tables {
+import java.io.Serializable;
+
+public class Tables implements Serializable {
 
     @Override
     public String toString() {
