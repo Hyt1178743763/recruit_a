@@ -69,7 +69,6 @@ public class TableController {
     @RequestMapping("add1")
     public String caseInsert(Tables tables, MultipartFile[] file, HttpServletRequest request){
         try {
-
             FileSaveUtil util=new FileSaveUtil(file,tables,request);
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,8 +81,12 @@ public class TableController {
 
     @RequestMapping("find1")
     public String findTable1(Model model){
-
         return "front/lookDetail";
+    }
+
+    @RequestMapping("baoming")
+    public String findTable2(){
+        return "front/baoming";
     }
 
 
@@ -132,9 +135,14 @@ public class TableController {
         if(tables2!=null){
             model.addAttribute("table",tables2);
         }
-        return "front/lookDetail";
+        return "front/lookDetail1";
     }
 
+    /**
+     * excel表导出
+     * @param request
+     * @param response
+     */
     @RequestMapping("/exportExcel")
     public void exportExcel(HttpServletRequest request, HttpServletResponse response) {
         List<Tables> tableList = tableService.findTables();

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>招新表</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/recruit/main/css/common.css" type="text/css" rel="stylesheet">
+    <link href="/recruit/main/css/index.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            /*background-image: url();*/
+            background-color: #F8FCFD;
+            border-style: none;
+            border-color: #FFFFFF;
+        }
+
+        body, div, p, textarea {
+            font-family: "\5B8B\4F53"
+        }
+    </style>
+</head>
+<body>
+<script src="/recruit/main/js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    //字数限制
+    window.onload = function () {
+        //（document）
+        document.getElementById('organization').onkeyup = function () {
+            document.getElementById('text-count').innerHTML = this.value.length;
+        }
+        //（jquery）
+        $('#introduction').keyup(function () {
+            var len = this.value.length
+            $('#text-count2').text(len);
+        })
+        $('#likes').keyup(function () {
+            var len = this.value.length
+            $('#text-count3').text(len);
+        })
+        $('#future').keyup(function () {
+            var len = this.value.length
+            $('#text-count4').text(len);
+        })
+        $('#traget').keyup(function () {
+            var len = this.value.length
+            $('#text-count5').text(len);
+        })
+    }
+    function beforeSubmit(form) {
+        if (form.name.value == '') {
+            alert('姓名不能为空！');
+            form.name.focus();
+            return false;
+        }
+        if (form.gender.value == '') {
+            alert('性别不能为空！');
+            form.gender.focus();
+            return false;
+        }
+        if (form.phonenum.value == '') {
+            alert('手机号不能为空！');
+            form.phonenum.focus();
+            return false;
+        }
+        if (form.qqnum.value == '') {
+            alert('QQ号不能为空！');
+            form.qqnum.focus();
+            return false;
+        }
+        if (form.classes.value == '') {
+            alert('班级不能为空！');
+            form.classes.focus();
+            return false;
+        }
+        if (form.dormitory.value == '') {
+            alert('宿舍不能为空！');
+            form.dormitory.focus();
+            return false;
+        }
+        if (form.organization.value == '') {
+            alert('已投递组织不能为空！');
+            form.organization.focus();
+            return false;
+        }
+        if (form.introduction.value == '') {
+            alert('自我介绍不能为空！');
+            form.introduction.focus();
+            return false;
+        }
+        if (form.likes.value == '') {
+            alert('IT相关爱好、特长不能为空！');
+            form.likes.focus();
+            return false;
+        }
+        if (form.future.value == '') {
+            alert('在实验室的学习展望不能为空！');
+            form.future.focus();
+            return false;
+        }
+        if (form.traget.value == '') {
+            alert('理想目标不能为空！');
+            form.traget.focus();
+            return false;
+        }
+        if (form.file.value == '') {
+            alert('照片不能为空！');
+            form.file.focus();
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+
+<form action="/recruit/table/add1" method="post" enctype="multipart/form-data" name="form"
+      onSubmit="return beforeSubmit(this);">
+    <table width="999" border="1" align="center" cellpadding="0" cellspacing="0">
+        <caption>&nbsp;
+        </caption>
+        <caption>
+            <p><b>软件学院创新基地招新报名表</b></p>
+        </caption>
+        <tbody>
+        <tr>
+            <th width="150" height="55" scope="col">姓名</th>
+            <th width="195" scope="col"><input type="text" id="name" name="name" maxlength="10" style=" width:251px;font-family: verdana;font-size: 20px;
+       height:52px;text-align:center; border:0px;"></th>
+            <th width="133" scope="col">性别</th>
+            <td width="195" bgcolor="#F8FCFD" scope="col"><input type="text" id="gender" name="gender" maxlength="1"
+                                                                 style="width:250px;font-family: verdana;font-size: 20px;
+       height:50px;text-align:center; border:0px;"/></td>
+            <th width="189" rowspan="4" scope="col">
+
+
+                <div class="img-box full">
+                    <section class=" img-section">
+                        <div class="z_photo upimg-div clear">
+                            <section class="z_file fl">
+                                <img src="/recruit/main/img/a11.png" class="add-img">
+                                <input type="file" name="file" id="file" class="file" value=""
+                                       accept="image/jpg,image/jpeg,image/png,image/bmp"/>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <aside class="mask works-mask">
+                    <div class="mask-content">
+                        <p class="del-p ">您确定要删除作品图片吗？</p>
+                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                    </div>
+                </aside>
+                <script src="/recruit/main/js/jquery-1.8.3.min.js"></script>
+                <script src="/recruit/main/js/imgUp.js"></script>
+
+            </th>
+        </tr>
+        <tr>
+            <td width="150" height="55">
+                <center><b>手机</b></center>
+            </td>
+            <td><input type="text" id="phonenum" name="phonenum" style="width:250px;font-family: verdana;font-size: 20px;
+       height:50px;text-align:center;border:0px;" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+            </td>
+
+            <td>
+                <center><b>QQ</b></center>
+            </td>
+            <td><input type="text" id="qqnum" name="qqnum" maxlength="15" style="width:250px;font-family: verdana;font-size: 20px;
+       height:50px;text-align:center;border:0px;"/></td>
+        </tr>
+        <tr>
+            <td width="150" height="55">
+                <center><b>班级</b></center>
+            </td>
+            <td><input type="text" id="classes" name="classes" maxlength="15" style="width:250px;font-family: verdana;font-size: 20px;
+       height:50px;text-align:center;border:0px;" placeholder="如:软件工程1901"/></td>
+            <td>
+                <center><b>宿舍</b></center>
+            </td>
+            <td><input type="text" id="dormitory" name="dormitory" maxlength="15" style="width:250px;font-family: verdana;font-size: 20px;
+       height:50px;text-align:center;border:0px;" placeholder="如:2号楼338"/></td>
+        </tr>
+        <tr>
+            <td height="80">
+                <center><b>已投递组织</b></center>
+            </td>
+            <td colspan="3"><textarea rows="4" cols="94" id="organization" name="organization" style="font-size:11pt;"
+                                      name="organization" maxlength="200" value=""
+                                      onkeyup="this.value=this.value.substring(0, 200)"
+                                      placeholder="最多可输入200字"></textarea><br/>
+                <span id="text-count" value="">0</span>/200
+            </td>
+        </tr>
+        <tr>
+            <td height="232"><p>&nbsp;</p>
+                <p>
+                <center><b>自我介绍</b></center>
+                </p></td>
+            <td colspan="4"><textarea rows="12" cols="123" id="introduction" name="introduction" style="font-size:11pt;"
+                                      name="introduction" maxlength="250" value=""
+                                      onkeyup="this.value=this.value.substring(0, 250)"
+                                      placeholder="最多可输入250字"> </textarea><br/>
+                <span id="text-count2" value="">0</span>/250
+            </td>
+        </tr>
+        <tr>
+            <td height="232">
+                <center><b>IT相关爱好，特长</b></center>
+            </td>
+            <td colspan="4"><textarea rows="12" cols="123" id="likes" name="likes"
+                                      style="font-size:11pt;" name="likes" maxlength="250" value=""
+                                      onkeyup="this.value=this.value.substring(0, 250)"
+                                      placeholder="最多可输入250字"></textarea><br/>
+                <span id="text-count3" value="">0</span>/250
+            </td>
+        </tr>
+        <tr>
+            <td height="233">
+                <center><b>在实验室的学习展望</b></center>
+            </td>
+            <td colspan="4"><textarea rows="13" cols="123" id="future" name="future" style="font-size:11pt;"
+                                      name="future"
+                                      maxlength="250" value=""
+                                      onkeyup="this.value=this.value.substring(0, 250)"
+                                      placeholder="最多可输入250字"></textarea><br/>
+                <span id="text-count4" value="">0</span>/250
+            </td>
+        </tr>
+        <tr>
+            <td height="215">
+                <center><b>理想目标</b></center>
+            </td>
+            <td colspan="4"><textarea rows="13" cols="123" id="traget" name="traget" style="font-size:11pt;"
+                                      name="traget"
+                                      maxlength="250" value=""
+                                      onkeyup="this.value=this.value.substring(0, 250)"
+                                      placeholder="最多可输入250字"></textarea><br/>
+                <span id="text-count5" value="">0</span>/250
+
+                <input type="submit" value="提交"
+                       style="width:200px; height:30px;border:0px;background:#3498DB;margin-top:0px; margin-left:250px; font-size:24px;color:white;">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p><strong>
+        <center>交表时间是<font color="#E74C3C">9月20日从中午12点到晚上9点半</font>，地点是<font color="#E74C3C">工程训练中心339 (4号楼西侧)</font>
+        </center>
+    </strong></p>
+    <p><strong>
+        <center>注：更多详细相关信息请进QQ群<font color="#E74C3C">572272821</font>询问</center>
+    </strong></p>
+
+
+</form>
+</body>
+</html>
