@@ -34,7 +34,7 @@ $(function(){
 					$(".works-mask").show();
 					delParent = $(this).parent();
 				});   
-				$img0.attr("src","img/a7.png").appendTo($section);
+				$img0.attr("src","/recruit/main/img/a7.png").appendTo($section);
 		     var $img = $("<img class='up-img up-opcity'>");
 		         $img.attr("src",imgArr[i]);
 		         $img.appendTo($section);
