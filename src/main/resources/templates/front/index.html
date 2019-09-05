@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/recruit/main/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="/recruit/main/css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/recruit/main/css/component.css"/>
+    <script src="/recruit/main/js/jquery-1.8.3.js"></script>
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -44,7 +45,7 @@
     <article class="content">
         <div>
             <h3>实验室简介</h3>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;郑州轻工业学院软件综合实践与创新基地（软创实验室）是隶属于郑州轻工业学院的校级实验室。软创实验室具有专业的教师团队、卓越的学习环境、一流的开发团队、全面的学习资料等等，对于学生的个人发展和未来规划影响极大，是每届软件学院的学生优先竞争的环境。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;郑州轻工业大学软件综合实践与创新基地（软创实验室）是隶属于郑州轻工业大学的校级实验室。软创实验室具有专业的教师团队、卓越的学习环境、一流的开发团队、全面的学习资料等等，对于学生的个人发展和未来规划影响极大，是每届软件学院的学生优先竞争的环境。</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实验室自成立以来多次参与河南省和全国各类大学生软件竞赛取得优异的成绩。例如在中国大学生计算机设计大赛、蓝桥杯等等赛事中，团队几乎每年都能在国赛和省赛斩获一等奖、二等奖等等十余项。</p>
             <h3>实验室文化</h3>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;软创实验室根据学生的个人意愿针对每个成员都制定了专属的培养方案，挖掘学生的潜力，全面发挥学生的特长，秉承“素质与技术全面提高”的理念进行管理和发展学生，让每个学生都受益良多。软创实验室属于一个“接力式”团队，除了老师团队外，每届成员都会被上届老成员所带领学习，并且带领下届新成员学习，正是这种模式给实验室团队输送源源不断的新血液，所以实验室的活力保持至今而且将持久保持下去。</p>
@@ -62,6 +63,9 @@
             <blockquote>软创招新群：572272821或扫描二维码</blockquote>
             <center><img src="/recruit/main/img/群二维码.png"/></center>
         </div>
+        <div id="backUp" style="z-index: 9999; position: fixed ! important; right: 5px; bottom: 70px;">
+            <img src="/recruit/main/img/top.png"/>
+      </div>
     </article>
 </div><!-- /container -->
 <script src="/recruit/main/js/classie.js"></script>
@@ -206,6 +210,13 @@
             toggle('reveal');
         });
     })();
+</script>
+<script>
+    //回顶部
+    $('#backUp').click(function () {
+        $('html,body').animate({scrollTop: '0px'}, 1000);
+        return false;
+    });
 </script>
 </body>
 </html>

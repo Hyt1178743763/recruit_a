@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/recruit/main/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="/recruit/main/css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/recruit/main/css/component.css"/>
+    <script src="/recruit/main/js/jquery-1.8.3.js"></script>
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -52,7 +53,7 @@
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;软件设计创新团队成立于2010年9月20日，源于软件工程“卓越工程师教育培养计划”，
                 指导教师专业涵盖软件工程、软件理论及应用、计算机科学技术、信号与信息处理等，具有较强的理论研究及实践创新能力。</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;团队重点指导参加学生各类学科竞赛和申报大学生创新实验项目、科技活动项目等，近年来团队已指导学生完成作品/项目500余项，在研大学生创新创业训练计划项目、大学生创实验新项目、科技活动项目40多项;指导学生参加中国大学生计算机设计大赛、中国“互联网+”大学生创新创业大赛、全国大学生“互联网+”创新大赛、ACM国际大学生程序设计竞赛、蓝桥杯全国软件和信息技术专业人才大赛等学科竞赛等井获得国家级和省级奖项500余项。</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;郑州轻工业学院软件综合实践与创新基地是隶属于郑州轻工业学院，由软件设计创新团队的老师们指导、实验室自成立以来多次参与河南省和全国各类大学生软件竞赛取得优异的成绩。特别是在全国大学生计算机设计大赛国赛和省赛等等常获一二三等奖。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;郑州轻工业大学软件综合实践与创新基地是隶属于郑州轻工业大学，由软件设计创新团队的老师们指导、实验室自成立以来多次参与河南省和全国各类大学生软件竞赛取得优异的成绩。特别是在全国大学生计算机设计大赛国赛和省赛等等常获一二三等奖。</p>
 
             <blockquote>我们会带你们学习专业知识、我们会提供我们的学习经验、我们会带你们做项目、我们会带你们参加比赛。
                 在这里，你可以变得更强。
@@ -62,7 +63,11 @@
             <center><img src="/recruit/main/img/群二维码.png"/></center>
             <blockquote>线上<a href="/recruit/table/index3">报名表填写</a></blockquote>
         </div>
+        <div id="backUp" style="z-index: 9999; position: fixed ! important; right: 5px; bottom: 70px;">
+            <img src="/recruit/main/img/top.png"/>
+        </div>
     </article>
+
 </div><!-- /container -->
 <script src="/recruit/main/js/classie.js"></script>
 <script>
@@ -206,6 +211,13 @@
             toggle('reveal');
         });
     })();
+</script>
+<script>
+    //回顶部
+    $('#backUp').click(function () {
+        $('html,body').animate({scrollTop: '0px'}, 1000);
+        return false;
+    });
 </script>
 </body>
 </html>
