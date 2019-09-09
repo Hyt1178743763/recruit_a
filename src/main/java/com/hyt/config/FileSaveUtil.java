@@ -21,7 +21,7 @@ public class FileSaveUtil {
             name= UUID.randomUUID().toString().replaceAll("-","")+"."+ FilenameUtils.getExtension(files[0].getOriginalFilename());
             tables.setPicture(name);
             files[0].transferTo(new File(Dir+ name));
-
         }
     }
+
 }

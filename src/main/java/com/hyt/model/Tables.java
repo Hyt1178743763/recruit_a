@@ -438,4 +438,7 @@ public class Tables implements Serializable {
     public void setPicture(String picture) {
         this.picture = picture == null ? null : picture.trim();
     }
+
+
+
 }
