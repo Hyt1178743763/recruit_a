@@ -3,7 +3,8 @@ package com.hyt.config.intercepors;
 
 import com.hyt.model.User;
 
-import com.sun.istack.internal.Nullable;
+
+import javax.annotation.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

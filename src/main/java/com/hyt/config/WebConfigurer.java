@@ -55,7 +55,7 @@ public class WebConfigurer implements WebMvcConfigurer {
     // 这个方法是用来配置静态资源的，比如html，js，css，等等
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/image/**").addResourceLocations("file:D:/static/");
+        registry.addResourceHandler("/image/**").addResourceLocations("file:C:/static/");
     }
 
     @Override

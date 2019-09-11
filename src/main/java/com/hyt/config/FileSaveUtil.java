@@ -12,7 +12,7 @@ import java.util.UUID;
 public class FileSaveUtil {
     public FileSaveUtil(MultipartFile[] files, Tables tables, HttpServletRequest request) throws IllegalStateException, IOException {
         String name=null;
-        String Dir="D:\\static\\";
+        String Dir="C:\\static\\";
         File file=new File(Dir);
         if (!file.exists()){
             file.mkdir();

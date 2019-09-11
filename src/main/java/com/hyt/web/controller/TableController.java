@@ -68,7 +68,7 @@ public class TableController {
 
     @RequestMapping("index5")
     public String login5() {
-        return "form/index";
+        return "front/index5";
     }
     @RequestMapping("index6")
     public String login6() {
@@ -142,7 +142,7 @@ public class TableController {
                 // System.out.println(tables);
                 String base64Data = tables.getPicture().split(",")[1];
                 String name = null;
-                String Dir = "D:\\static\\";
+                String Dir = "C:\\static\\";
                 File file = new File(Dir);
                 if (!file.exists()) {
                     file.mkdir();
@@ -168,8 +168,8 @@ public class TableController {
     //报名表添加1
     @RequestMapping("add1")
     public String caseInsert(Tables tables, MultipartFile[] file, HttpServletRequest request) {
-        //查出所有表，看看有没有注册过
         System.out.println(tables);
+        //查出所有表，看看有没有注册过
         Boolean bool = false;
         List<Tables> tables1 = tableService.findTables();
         for (Tables tab : tables1) {

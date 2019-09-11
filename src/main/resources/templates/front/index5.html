@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>招新表提交</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="shortcut icon" href="/recruit/form/img/zzuli.ico" />
+    <link rel="stylesheet" href="/recruit/form/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/recruit/form/css/fileinput.css">
+    <script src="/recruit/form/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+    <script src="/recruit/form/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="/recruit/form/js/fileinput.js"></script>
+  <!--  <script src="/recruit/form/js/action.js"></script>-->
+    <![endif]-->
+</head>
+
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <h1>招新表提交</h1>
+    </div>
+    <h3><span style="color: red">注意：</span></h3>
+    <div class="row">
+        <div class="col-md-10">
+
+            <div style="text-align: center">截止提交时间是9月14日中午12点
+            </div>
+            <div style="text-align: center">更多信息请加招新群：572272821询问</div>
+            <div style="text-align: center"><a
+                    href='http://shang.qq.com/wpa/qunwpa?idkey=286f620c2b57885df646fbe11f4985f695cb16218a1eb3d017b48616e0bbef94'>点击加群</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <form class="form-horizontal" role="form" id="form" action="/recruit/table/add1" method="post" enctype="multipart/form-data" name="form">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">姓名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名"
+                               data-bv-notempty="true"
+                               data-bv-notempty-message="不能为空">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="file" class="col-sm-2 control-label">照片</label>
+                    <div class="col-sm-10">
+                        <input id="file" class="file" type="file" name="file" multiple data-min-file-count="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-sm-2 control-label">性别</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="gender" name="gender" placeholder="请输入姓别">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phonenum" class="col-sm-2 control-label">手机</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phonenum" name="phonenum" placeholder="请输入手机号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="qqnum" class="col-sm-2 control-label">QQ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="qqnum" name="qqnum" placeholder="请输入姓别">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="classes" class="col-sm-2 control-label">班级</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="classes" name="classes" placeholder="请输入姓别">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dormitory" class="col-sm-2 control-label">学号</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="dormitory" name="dormitory" placeholder="请输入学号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="organization" class="col-sm-2 control-label">已投递组织</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="organization" name="organization" placeholder="没有请填写“暂无”"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="introduction" class="col-sm-2 control-label">自我介绍</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="introduction" name="introduction" placeholder="必填，最多251字"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="likes" class="col-sm-2 control-label">IT相关爱好、特长</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="likes" name="likes" placeholder="必填，最多251字"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="future" class="col-sm-2 control-label">在实验室的学习展望 </label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="future" name="future" placeholder="必填，最多251字"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="traget" class="col-sm-2 control-label">理想目标</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="traget" name="traget" placeholder="必填，最多251字"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10" style="text-align: center">
+                        <input type="submit" class="btn btn-primary" style="width: 100px"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
